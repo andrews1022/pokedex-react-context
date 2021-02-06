@@ -1,19 +1,27 @@
-import React from 'react';
-import './App.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import loadInitialPokemon from './../../actions/pokemonAction';
+import Nav from './../Nav/Nav';
+import Footer from './../Footer/Footer';
+import './App.scss';
 
-function App() {
+const App = () => {
+	const dispatch = useDispatch();
+
+	// on component load/mount, dispatch the loadInitialPokemon action
+	// making sure our state in our store is updated
+	useEffect(() => {
+		dispatch(loadInitialPokemon());
+	}, [dispatch]);
+
 	return (
 		<div className='app'>
 			<header className='app__header'>
-				<h2>Hello!</h2>
-				<FontAwesomeIcon icon={faCoffee} size='lg' />
-				<FontAwesomeIcon icon={faHeart} size='lg' />
+				<Nav />
+				<Footer />
 			</header>
 		</div>
 	);
-}
+};
 
 export default App;
