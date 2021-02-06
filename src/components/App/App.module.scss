@@ -1,0 +1,16 @@
+@import './../../scss/abstract/variables';
+
+.app {
+	text-align: right;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		background-color: #282c34;
+		min-height: 100vh;
+		font-size: calc(10px + 2vmin);
+		color: $white;
+	}
+}

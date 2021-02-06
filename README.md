@@ -1,4 +1,4 @@
-# Pokedex - A React/Context API Project
+# Pokedex - A React/Redux API Project
 
 This project is an updated version of my previous Pokedex / React project, which you can see [here](https://github.com/andrews1022/pokedex-react). With this iteration, I wanted to add features I felt were missing, as well as improve how state was managed.
 
@@ -10,3 +10,5 @@ This project is an updated version of my previous Pokedex / React project, which
 - Update loading animations
 - Use CSS Grid for layout instead of Flexbox
 - Using Axios for fetching data from the API instead of the fetch API
+- Using Redux for state management
+- Using Node-Sass to import SCSS modules
