@@ -1,3 +1,50 @@
+@import './../../scss/abstract/variables';
+
+$pad: 0.75rem;
+
 .nav {
-	background-color: rebeccapurple;
+	background-color: $java;
+	padding: 1% 4%;
+
+	&__list {
+		display: flex;
+		align-items: center;
+	}
+
+	&__item {
+		&:first-of-type {
+			margin-right: 3.5%;
+		}
+
+		&:last-of-type {
+		}
+	}
+
+	&__heading {
+		color: $gainsboro;
+		font-size: 3rem;
+		font-weight: 700;
+	}
+
+	&__search {
+		border: none;
+		font-size: 1rem;
+		padding: $pad 0.75rem;
+	}
+
+	&__button {
+		color: $nero;
+		margin-left: -0.25rem;
+		background-color: $gainsboro;
+		border: none;
+		padding: $pad 1.125rem;
+		transition: $transitionSmoothShort;
+
+		@media (hover) {
+			&:hover {
+				background-color: darken($gainsboro, 5%);
+				cursor: pointer;
+			}
+		}
+	}
 }

@@ -1,0 +1,10 @@
+@import './../../scss/abstract/variables';
+
+.loading {
+	color: $lime;
+	font-size: 4rem;
+	font-weight: 800;
+	padding: 1rem 0;
+	text-align: center;
+	text-transform: uppercase;
+}

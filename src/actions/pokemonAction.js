@@ -3,12 +3,14 @@ import { BASE_URL } from './../api/api';
 
 const loadInitialPokemon = () => async (dispatch) => {
 	const pokemonData = await axios.get(BASE_URL);
-	const { results } = pokemonData.data;
+	const data = pokemonData.data;
 
 	dispatch({
 		type: 'FETCH_INITIAL_POKEMON',
 		payload: {
-			pokemonList: results
+			pokemonList: data.results,
+			prevUrl: data.next,
+			nextUrl: data.previous
 		}
 	});
 };

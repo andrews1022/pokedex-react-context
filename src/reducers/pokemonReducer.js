@@ -1,5 +1,7 @@
 const initialPokemon = {
-	pokemonList: []
+	pokemonList: [],
+	prevUrl: '',
+	nextUrl: ''
 };
 
 const pokemonReducer = (state = initialPokemon, action) => {
@@ -7,7 +9,9 @@ const pokemonReducer = (state = initialPokemon, action) => {
 		case 'FETCH_INITIAL_POKEMON':
 			return {
 				...state,
-				pokemonList: action.payload.pokemonList
+				pokemonList: action.payload.pokemonList,
+				prevUrl: action.payload.prevUrl,
+				nextUrl: action.payload.nextUrl
 			};
 
 		default:

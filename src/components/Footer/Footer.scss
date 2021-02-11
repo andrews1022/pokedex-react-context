@@ -1,3 +1,28 @@
-footer {
-	background-color: orangered;
+@import './../../scss/abstract/variables';
+
+.footer {
+	text-align: center;
+
+	// &__text {
+	// }
+
+	&__icon-row {
+		margin-top: 0.5%;
+	}
+
+	&__icon-link {
+		margin: 0 0.375%;
+		transition: $transitionSmoothShort;
+
+		@media (hover) {
+			&:hover,
+			&:active,
+			&:focus {
+				opacity: 0.66;
+			}
+		}
+	}
+
+	// &__icon {
+	// }
 }
