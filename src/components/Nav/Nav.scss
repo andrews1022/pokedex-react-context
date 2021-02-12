@@ -1,6 +1,6 @@
 @import './../../scss/abstract/variables';
 
-$pad: 0.75rem;
+$pad: 0.625rem;
 
 .nav {
 	background-color: $java;
@@ -17,11 +17,12 @@ $pad: 0.75rem;
 		}
 
 		&:last-of-type {
+			position: relative;
 		}
 	}
 
 	&__heading {
-		color: $gainsboro;
+		color: $white;
 		font-size: 3rem;
 		font-weight: 700;
 	}
@@ -30,9 +31,21 @@ $pad: 0.75rem;
 		border: none;
 		font-size: 1rem;
 		padding: $pad 0.75rem;
+		width: 25rem;
+
+		&:hover {
+			border: none;
+		}
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	&__button {
+		position: absolute;
+		top: 0;
+		right: -5rem;
 		color: $nero;
 		margin-left: -0.25rem;
 		background-color: $gainsboro;

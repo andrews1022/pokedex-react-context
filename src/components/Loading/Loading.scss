@@ -1,10 +1,20 @@
 @import './../../scss/abstract/variables';
 
 .loading {
-	color: $lime;
-	font-size: 4rem;
-	font-weight: 800;
-	padding: 1rem 0;
-	text-align: center;
-	text-transform: uppercase;
+	height: 4rem;
+	width: 4rem;
+	animation: spin 2s linear infinite;
+	border: 0.75rem solid $gainsboro;
+	border-top: 0.75rem solid $lime;
+	border-radius: 50%;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }

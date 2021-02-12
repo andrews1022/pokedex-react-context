@@ -1,4 +1,6 @@
 import React from 'react';
+
+// router
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // pages

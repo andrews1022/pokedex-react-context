@@ -1,0 +1,36 @@
+@import './../../scss/abstract/variables';
+
+.tb {
+	margin: 0 auto 1.5% auto;
+	width: 97.75%;
+
+	&__row {
+		display: flex;
+		align-items: center;
+	}
+
+	&__button {
+		background-color: transparent;
+		border: 1px solid $nero;
+		cursor: pointer;
+		flex: 1;
+		font-size: 1.125rem;
+		padding: 0.5rem 0;
+		transition: $transitionSmoothShort;
+
+		&:not(:first-of-type) {
+			border-left: none;
+		}
+
+		@media (hover) {
+			&:hover {
+				background-color: $nero;
+				color: $white;
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+$types: (
+	bug: $typeBug,
+	dark: $typeDark,
+	dragon: $typeDragon,
+	electric: $typeElectric,
+	fairy: $typeFairy,
+	fighting: $typeFighting,
+	fire: $typeFire,
+	flying: $typeFlying,
+	ghost: $typeGhost,
+	grass: $typeGrass,
+	ground: $typeGround,
+	ice: $typeIce,
+	normal: $typeNormal,
+	poison: $typePoison,
+	psychic: $typePsychic,
+	rock: $typeRock,
+	steel: $typeSteel,
+	water: $typeWater
+);
+
+@each $type, $color in $types {
+	.text-#{$type} {
+		color: $color;
+	}
+}

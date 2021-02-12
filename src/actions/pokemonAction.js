@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { BASE_URL } from './../api/api';
+import { baseUrl } from './../api/api';
 
-const loadInitialPokemon = () => async (dispatch) => {
-	const pokemonData = await axios.get(BASE_URL);
+export const loadInitialPokemon = () => async (dispatch) => {
+	const pokemonData = await axios.get(baseUrl());
 	const data = pokemonData.data;
 
 	dispatch({
@@ -14,5 +14,3 @@ const loadInitialPokemon = () => async (dispatch) => {
 		}
 	});
 };
-
-export default loadInitialPokemon;

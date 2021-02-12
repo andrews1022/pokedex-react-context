@@ -1,0 +1,28 @@
+@import './../../scss/abstract/variables';
+
+.pb {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 2.5rem;
+
+	&--left {
+		left: 1.5rem;
+	}
+
+	&--right {
+		right: 1.5rem;
+	}
+
+	&__icon {
+		path {
+			fill: $nero;
+		}
+
+		&.disabled {
+			path {
+				fill: $gainsboro;
+			}
+		}
+	}
+}
