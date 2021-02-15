@@ -7,13 +7,15 @@ import { loadInitialPokemon } from './../../actions/pokemonAction';
 
 // components
 import PokemonCard from './../PokemonCard/PokemonCard';
-import Loading from './../Loading/Loading';
 import PaginationButton from './../PaginationButton/PaginationButton';
 
 // styles
 import './PokemonList.scss';
 
 const PokemonList = () => {
+	// grab the pokemon out of the store
+	const { pokemonList, prevUrl, nextUrl } = useSelector((state) => state.pokemon);
+
 	const dispatch = useDispatch();
 
 	// on component load/mount, load the initial pokemon
@@ -21,26 +23,20 @@ const PokemonList = () => {
 		dispatch(loadInitialPokemon());
 	}, [dispatch]);
 
-	// grab the pokemon out of the store
-	const { pokemonList, prevUrl, nextUrl } = useSelector((state) => state.pokemon);
-	console.log('list: ', pokemonList);
-	console.log('previous url: ', prevUrl);
-	console.log('next url: ', nextUrl);
-
 	return (
 		// pokemon list shorthand: pl
 		<div className='pl'>
-			<PaginationButton icon={faChevronLeft} direction='left' />
+			<PaginationButton icon={faChevronLeft} direction='left' fetchUrl={prevUrl} />
 
 			<div className='pl__inner'>
 				{pokemonList.length ? (
 					pokemonList.map((pokemon, idx) => <PokemonCard key={idx} pokemon={pokemon} />)
 				) : (
-					<Loading />
+					<h2>Something went wrong here...</h2>
 				)}
 			</div>
 
-			<PaginationButton icon={faChevronRight} direction='right' />
+			<PaginationButton icon={faChevronRight} direction='right' fetchUrl={nextUrl} />
 		</div>
 	);
 };

@@ -1,10 +1,18 @@
 @import './../../scss/abstract/variables';
 
 .pc {
+	backface-visibility: hidden;
 	border: 2px solid $gainsboro;
 	padding: 0.5rem 1.5rem 1.5rem 1.5rem;
 	border-radius: 1rem;
 	box-shadow: $subtleBoxShadow;
+	transition: $transitionSmoothShort;
+
+	@media (hover) {
+		&:hover {
+			transform: scale(1.02);
+		}
+	}
 
 	&__sprite {
 		margin: 0 auto;

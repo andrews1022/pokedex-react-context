@@ -14,6 +14,8 @@ import { singlePokemonUrl } from './../../api/api';
 import './PokemonCard.scss';
 
 const PokemonCard = ({ pokemon }) => {
+	const { name } = pokemon;
+
 	const [id, setId] = useState('');
 	const [sprite, setSprite] = useState('');
 	const [isLoaded, setIsLoaded] = useState(false);
@@ -23,7 +25,7 @@ const PokemonCard = ({ pokemon }) => {
 
 		const getSprites = async () => {
 			try {
-				const response = await axios.get(singlePokemonUrl(pokemon.name), {
+				const response = await axios.get(singlePokemonUrl(name), {
 					cancelToken: cancelTokenSource.token
 				});
 
@@ -42,7 +44,7 @@ const PokemonCard = ({ pokemon }) => {
 		return () => {
 			cancelTokenSource.cancel();
 		};
-	}, [pokemon.name]);
+	}, [name]);
 
 	if (isLoaded) {
 		return (
@@ -50,9 +52,9 @@ const PokemonCard = ({ pokemon }) => {
 			<div className='pc'>
 				<img className='pc__sprite' src={sprite} alt={`sprite for ${sprite}`} />
 				<h2 className='pc__info'>
-					#{id}: {pokemon.name}
+					#{id}: {name}
 				</h2>
-				<Link className='pc__button' to={`/details/${pokemon.name}`}>
+				<Link className='pc__button' to={`/details/${name}`}>
 					View Details
 				</Link>
 			</div>

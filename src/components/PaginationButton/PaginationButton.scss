@@ -5,6 +5,20 @@
 	top: 50%;
 	transform: translateY(-50%);
 	font-size: 2.5rem;
+	transition: $transitionSmoothShort;
+
+	@media (hover) {
+		&:hover {
+			cursor: pointer;
+			transform: translateY(-60%);
+		}
+	}
+
+	&.disabled {
+		path {
+			fill: $gainsboro;
+		}
+	}
 
 	&--left {
 		left: 1.5rem;
@@ -17,12 +31,6 @@
 	&__icon {
 		path {
 			fill: $nero;
-		}
-
-		&.disabled {
-			path {
-				fill: $gainsboro;
-			}
 		}
 	}
 }

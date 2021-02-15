@@ -23,7 +23,7 @@ const Nav = () => {
 						id='poke_search'
 						placeholder='Enter a Pokémon name...'
 					/>
-					<button className='nav__button'>Seach</button>
+					<button className='nav__button'>Search</button>
 				</li>
 			</ul>
 		</nav>
