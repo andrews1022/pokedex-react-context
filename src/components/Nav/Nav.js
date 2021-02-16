@@ -1,5 +1,9 @@
 import React from 'react';
 
+// redux
+import { useDispatch } from 'react-redux';
+import { loadInitialPokemon } from './../../actions/pokemonAction';
+
 // router
 import { Link } from 'react-router-dom';
 
@@ -7,12 +11,20 @@ import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = () => {
+	const dispatch = useDispatch();
+
+	const resetPokemon = () => {
+		dispatch(loadInitialPokemon());
+	};
+
 	return (
 		<nav className='nav'>
 			<ul className='nav__list'>
 				<li className='nav__item'>
 					<Link to='/'>
-						<h1 className='nav__heading'>Pokédux</h1>
+						<h1 className='nav__heading' onClick={resetPokemon}>
+							Pokédux
+						</h1>
 					</Link>
 				</li>
 				<li className='nav__item'>

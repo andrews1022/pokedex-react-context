@@ -1,11 +1,54 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Details = () => {
-	return (
-		<div>
-			<h2>Hello from Details page!</h2>
-		</div>
-	);
+// redux
+import { useDispatch, useSelector } from 'react-redux';
+import { loadPokemonDetails } from './../../actions/detailsAction';
+
+// components
+import Loading from './../../components/Loading/Loading';
+
+// styles
+import './Details.scss';
+
+const Details = (props) => {
+	const pokemonName = props.match.params.name;
+
+	const dispatch = useDispatch();
+
+	// on component load/mount, load the initial pokemon
+	useEffect(() => {
+		dispatch(loadPokemonDetails(pokemonName));
+	}, [dispatch, pokemonName]);
+
+	const { id, spriteUrl, types, description, isLoaded } = useSelector((state) => state.details);
+
+	if (isLoaded) {
+		return (
+			<div className='pd'>
+				<div className='pd__row'>
+					<div className='pd__box'>
+						<img className='pd__sprite' src={spriteUrl} alt={`sprite for ${pokemonName}`} />
+					</div>
+
+					<div className='pd__box'>
+						<h2 className='pd__heading'>
+							#{id} {pokemonName}
+						</h2>
+						<ul className='pd__types'>
+							{types.map((type, idx) => (
+								<li className={`pd__type text-${type.type.name}`} key={idx}>
+									{type.type.name}
+								</li>
+							))}
+						</ul>
+						<p className='pd__description'>{description}</p>
+					</div>
+				</div>
+			</div>
+		);
+	} else {
+		return <Loading />;
+	}
 };
 
 export default Details;

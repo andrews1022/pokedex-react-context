@@ -1,19 +1,22 @@
 import React from 'react';
 
+// redux
+import { useDispatch } from 'react-redux';
+import { fetchGenerationPokemon } from './../../actions/pokemonAction';
+
 // styles
 import './Toolbar.scss';
 
 const Toolbar = () => {
-	const regions = [
-		{ name: 'Kanto', generation: 1 },
-		{ name: 'Johto', generation: 2 },
-		{ name: 'Hoenn', generation: 3 },
-		{ name: 'Sinnoh', generation: 4 },
-		{ name: 'Unova', generation: 5 },
-		{ name: 'Kalos', generation: 6 },
-		{ name: 'Alola', generation: 7 },
-		{ name: 'Galar', generation: 8 }
-	];
+	const regions = ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unova', 'Kalos', 'Alola'];
+
+	const dispatch = useDispatch();
+
+	const clickHandler = (e) => {
+		const generationToFetch = regions.indexOf(e.target.textContent) + 1;
+
+		dispatch(fetchGenerationPokemon(generationToFetch));
+	};
 
 	return (
 		// toolbar shorthand: tb
@@ -21,8 +24,8 @@ const Toolbar = () => {
 			<div className='tb__row'>
 				{regions.map((region, idx) => {
 					return (
-						<button className='tb__button' key={idx}>
-							{region.name}
+						<button className='tb__button' key={idx} onClick={clickHandler}>
+							{region}
 						</button>
 					);
 				})}

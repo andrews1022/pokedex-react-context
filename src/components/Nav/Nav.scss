@@ -25,6 +25,12 @@ $pad: 0.625rem;
 		color: $white;
 		font-size: 3rem;
 		font-weight: 700;
+
+		@media (hover) {
+			&:hover {
+				cursor: pointer;
+			}
+		}
 	}
 
 	&__search {
@@ -46,10 +52,10 @@ $pad: 0.625rem;
 		position: absolute;
 		top: 0;
 		right: -5rem;
-		color: $nero;
-		margin-left: -0.25rem;
 		background-color: $gainsboro;
 		border: none;
+		color: $nero;
+		margin-left: -0.25rem;
 		padding: $pad 1.125rem;
 		transition: $transitionSmoothShort;
 

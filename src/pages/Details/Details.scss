@@ -1,0 +1,56 @@
+@import './../../scss/abstract/variables';
+
+.pd {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5% 0;
+
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 80%;
+	}
+
+	&__box {
+		&:first-of-type {
+			margin-right: auto;
+			flex-shrink: 0;
+		}
+
+		&:last-of-type {
+			flex-basis: 50%;
+		}
+	}
+
+	&__sprite {
+		width: 30rem;
+	}
+
+	&__heading {
+		font-size: 4.5rem;
+		text-transform: capitalize;
+	}
+
+	&__types {
+		display: flex;
+		font-size: 2rem;
+		font-weight: 800;
+		margin: 4% 0;
+		text-transform: uppercase;
+	}
+
+	&__type {
+		&:first-of-type {
+			margin-right: 1rem;
+		}
+
+		&:last-of-type {
+		}
+	}
+
+	&__description {
+		font-size: 1.25rem;
+	}
+}

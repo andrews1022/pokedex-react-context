@@ -1,7 +1,5 @@
 const initialState = {
 	pokemonList: [],
-	prevUrl: '',
-	nextUrl: '',
 	isLoaded: false
 };
 
@@ -11,17 +9,13 @@ const pokemonReducer = (state = initialState, action) => {
 			return {
 				...state,
 				pokemonList: action.payload.pokemonList,
-				prevUrl: action.payload.prevUrl,
-				nextUrl: action.payload.nextUrl,
 				isLoaded: true
 			};
 
-		case 'FETCH_PAGINATION_POKEMON':
+		case 'FETCH_GENERATION_POKEMON':
 			return {
 				...state,
 				pokemonList: action.payload.pokemonList,
-				prevUrl: action.payload.prevUrl,
-				nextUrl: action.payload.nextUrl,
 				isLoaded: true
 			};
 
@@ -32,7 +26,9 @@ const pokemonReducer = (state = initialState, action) => {
 			};
 
 		default:
-			return { ...state };
+			return {
+				...state
+			};
 	}
 };
 

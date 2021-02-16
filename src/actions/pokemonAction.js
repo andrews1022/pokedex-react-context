@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseUrl, paginationUrl } from './../api/api';
+import { baseUrl, generationUrl } from './../api/api';
 
 export const loadInitialPokemon = () => async (dispatch) => {
 	dispatch({ type: 'LOADING_POKEMON' });
@@ -7,28 +7,36 @@ export const loadInitialPokemon = () => async (dispatch) => {
 	const response = await axios.get(baseUrl());
 	const data = response.data;
 
+	const species = data.pokemon_species;
+
+	const sortedSpecies = species.sort((a, b) =>
+		a.url.localeCompare(b.url, 'en', { numeric: true, sensitivity: 'base' })
+	);
+
 	dispatch({
 		type: 'FETCH_INITIAL_POKEMON',
 		payload: {
-			pokemonList: data.results,
-			prevUrl: data.previous,
-			nextUrl: data.next
+			pokemonList: sortedSpecies
 		}
 	});
 };
 
-export const fetchPokemon = (url) => async (dispatch) => {
+export const fetchGenerationPokemon = (gen) => async (dispatch) => {
 	dispatch({ type: 'LOADING_POKEMON' });
 
-	const response = await axios.get(paginationUrl(url));
+	const response = await axios.get(generationUrl(gen));
 	const data = response.data;
 
+	const species = data.pokemon_species;
+
+	const sortedSpecies = species.sort((a, b) =>
+		a.url.localeCompare(b.url, 'en', { numeric: true, sensitivity: 'base' })
+	);
+
 	dispatch({
-		type: 'FETCH_PAGINATION_POKEMON',
+		type: 'FETCH_GENERATION_POKEMON',
 		payload: {
-			pokemonList: data.results,
-			prevUrl: data.previous,
-			nextUrl: data.next
+			pokemonList: sortedSpecies
 		}
 	});
 };
