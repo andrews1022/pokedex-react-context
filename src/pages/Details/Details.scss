@@ -4,12 +4,47 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 5% 0;
+	padding: 4% 0;
+	position: relative;
+
+	&__button {
+		position: absolute;
+		top: 5%;
+		left: -2.5%;
+		display: flex;
+		align-items: center;
+		background-color: transparent;
+		border: 2px solid $flamenco;
+		color: $flamenco;
+		font-size: 1.125rem;
+		padding: 1rem 2rem 1rem 5rem;
+		font-weight: 600;
+		transition: $transitionSmoothShort;
+		text-transform: uppercase;
+
+		@media (hover) {
+			&:hover {
+				background-color: $flamenco;
+				box-shadow: $subtleBoxShadow;
+				color: $white;
+				padding: 1rem 6rem 1rem 9rem;
+			}
+		}
+	}
+
+	&__icon {
+		font-size: 1.5rem;
+		margin-right: 1rem;
+	}
+
+	&__button-text {
+	}
 
 	&__row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		margin-top: 3%;
 		width: 80%;
 	}
 
@@ -52,5 +87,6 @@
 
 	&__description {
 		font-size: 1.25rem;
+		line-height: 1.4;
 	}
 }

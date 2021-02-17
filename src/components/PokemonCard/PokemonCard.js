@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 // component
 import Loading from './../Loading/Loading';
 
-// redux
-import { useSelector } from 'react-redux';
-
 // util funciton
 import { padWithZeroes } from './../../utility/utilityFunctions';
 
@@ -22,11 +19,9 @@ import './PokemonCard.scss';
 const PokemonCard = ({ pokemon }) => {
 	const { name } = pokemon;
 
-	// grab isLoaded state from the store
-	const { isLoaded } = useSelector((state) => state.pokemon);
-
 	const [id, setId] = useState('');
 	const [sprite, setSprite] = useState('');
+	const [spriteLoaded, setSpriteLoaded] = useState(false);
 
 	useEffect(() => {
 		const cancelTokenSource = axios.CancelToken.source();
@@ -47,11 +42,13 @@ const PokemonCard = ({ pokemon }) => {
 
 				setId(data.id);
 				setSprite(finalSpriteUrl);
+				setSpriteLoaded(true); // need to use useState so loading component displays properly
 			} catch (error) {
 				console.log(error);
 			}
 		};
 
+		// call the function
 		getCardDetails();
 
 		// cleanup
@@ -62,19 +59,21 @@ const PokemonCard = ({ pokemon }) => {
 
 	return (
 		<div className='pc'>
-			{isLoaded ? (
-				<img className='pc__sprite' src={sprite} alt={`sprite for ${name}`} />
+			{spriteLoaded ? (
+				<div className='pc__inner'>
+					<img className='pc__sprite' src={sprite} alt={`sprite for ${name}`} />
+
+					<h2 className='pc__info'>
+						#{id}: {name}
+					</h2>
+
+					<Link className='pc__button' to={`/details/${name}`}>
+						View Details
+					</Link>
+				</div>
 			) : (
 				<Loading />
 			)}
-
-			<h2 className='pc__info'>
-				#{id}: {name}
-			</h2>
-
-			<Link className='pc__button' to={`/details/${name}`}>
-				View Details
-			</Link>
 		</div>
 	);
 };

@@ -18,6 +18,12 @@ const detailReducer = (state = initialState, action) => {
 				isLoaded: true
 			};
 
+		case 'LOADING_POKEMON':
+			return {
+				...state,
+				isLoaded: false
+			};
+
 		default:
 			return {
 				...state

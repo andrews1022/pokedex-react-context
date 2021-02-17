@@ -4,6 +4,13 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadPokemonDetails } from './../../actions/detailsAction';
 
+// router
+import { Link } from 'react-router-dom';
+
+// font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
 // components
 import Loading from './../../components/Loading/Loading';
 
@@ -22,9 +29,14 @@ const Details = (props) => {
 
 	const { id, spriteUrl, types, description, isLoaded } = useSelector((state) => state.details);
 
-	if (isLoaded) {
-		return (
-			<div className='pd'>
+	return (
+		<div className='pd'>
+			<Link to='/' className='pd__button'>
+				<FontAwesomeIcon icon={faChevronLeft} className='pd__icon' />
+				<span className='pd__button-text'>Go back</span>
+			</Link>
+
+			{isLoaded ? (
 				<div className='pd__row'>
 					<div className='pd__box'>
 						<img className='pd__sprite' src={spriteUrl} alt={`sprite for ${pokemonName}`} />
@@ -44,11 +56,11 @@ const Details = (props) => {
 						<p className='pd__description'>{description}</p>
 					</div>
 				</div>
-			</div>
-		);
-	} else {
-		return <Loading />;
-	}
+			) : (
+				<Loading />
+			)}
+		</div>
+	);
 };
 
 export default Details;

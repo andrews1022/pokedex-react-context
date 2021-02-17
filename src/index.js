@@ -5,12 +5,17 @@ import './scss/index.scss';
 
 // redux
 import { Provider } from 'react-redux';
-import store from './store/store';
+import configureStore, { history } from './store/store';
+import { ConnectedRouter } from 'connected-react-router';
+
+const store = configureStore();
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<ConnectedRouter history={history}>
+				<App />
+			</ConnectedRouter>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')

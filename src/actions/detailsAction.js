@@ -3,7 +3,7 @@ import { singlePokemonUrl, imageUrl, descriptionUrl } from './../api/api';
 import { padWithZeroes } from './../utility/utilityFunctions';
 
 export const loadPokemonDetails = (name) => async (dispatch) => {
-	dispatch({ type: 'LOADING_DETAIL' });
+	dispatch({ type: 'LOADING_POKEMON' });
 
 	// get pokemon details
 	const response = await axios.get(singlePokemonUrl(name));
