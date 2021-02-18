@@ -30,6 +30,10 @@
 				padding: 1rem 6rem 1rem 9rem;
 			}
 		}
+
+		@media #{$tabletPortrait} {
+			padding: 1rem 2.5rem;
+		}
 	}
 
 	&__icon {
@@ -37,8 +41,8 @@
 		margin-right: 1rem;
 	}
 
-	&__button-text {
-	}
+	// &__button-text {
+	// }
 
 	&__row {
 		display: flex;
@@ -46,26 +50,58 @@
 		justify-content: space-between;
 		margin-top: 3%;
 		width: 80%;
+
+		@media #{$tabletLandscape} {
+			margin-top: 5%;
+			width: 90%;
+		}
+
+		@media #{$tabletPortrait} {
+			flex-direction: column;
+			margin-top: 5rem;
+		}
 	}
 
 	&__box {
 		&:first-of-type {
 			margin-right: auto;
 			flex-shrink: 0;
+
+			@media #{$tabletPortrait} {
+				margin-right: 0;
+			}
 		}
 
 		&:last-of-type {
 			flex-basis: 50%;
+
+			@media #{$tabletLandscape} {
+				flex-basis: 45%;
+			}
+
+			@media #{$tabletPortrait} {
+				text-align: center;
+				width: 100%;
+			}
 		}
 	}
 
 	&__sprite {
 		width: 30rem;
+
+		@media #{$tabletPortrait} {
+			margin: 0 auto;
+			width: 85%;
+		}
 	}
 
 	&__heading {
 		font-size: 4.5rem;
 		text-transform: capitalize;
+
+		@media #{$tabletLandscape} {
+			font-size: 4rem;
+		}
 	}
 
 	&__types {
@@ -74,6 +110,14 @@
 		font-weight: 800;
 		margin: 4% 0;
 		text-transform: uppercase;
+
+		@media #{$tabletLandscape} {
+			font-size: 1.5rem;
+		}
+
+		@media #{$tabletPortrait} {
+			justify-content: center;
+		}
 	}
 
 	&__type {
@@ -81,12 +125,12 @@
 			margin-right: 1rem;
 		}
 
-		&:last-of-type {
-		}
+		// &:last-of-type {
+		// }
 	}
 
 	&__description {
 		font-size: 1.25rem;
-		line-height: 1.4;
+		line-height: 1.5;
 	}
 }

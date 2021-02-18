@@ -1,6 +1,10 @@
 @import './../../scss/abstract/variables';
 
 .search {
+	@media #{$tabletPortrait} {
+		text-align: center;
+	}
+
 	&__results-heading {
 		font-size: 2rem;
 		font-weight: 700;
@@ -36,22 +40,30 @@
 	&__sprite {
 		margin-bottom: 1.75rem;
 		width: 12rem;
+
+		@media #{$mobileLarge} {
+			width: 10rem;
+		}
 	}
 
 	&__info {
 		font-size: 1.875rem;
 		font-weight: 700;
 		text-transform: capitalize;
+
+		@media #{$mobileLarge} {
+			font-size: 1.5rem;
+		}
 	}
 
 	&__button {
 		border: 2px solid $java;
-		display: block;
-		padding: 0.75rem 2rem;
-		margin-top: 1rem;
 		border-radius: 5rem;
 		color: $java;
+		display: block;
 		font-weight: 600;
+		margin-top: 1rem;
+		padding: 0.75rem 2rem;
 		transition: $transitionSmoothShort;
 
 		@media (hover) {
@@ -61,6 +73,10 @@
 				background-color: $java;
 				color: $white;
 			}
+		}
+
+		@media #{$mobileSmall} {
+			padding: 0.75rem 3.5rem;
 		}
 	}
 }

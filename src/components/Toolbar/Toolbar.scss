@@ -4,9 +4,19 @@
 	margin: 0 auto 1.5% auto;
 	width: 97.75%;
 
+	@media #{$tabletPortrait} {
+		margin: 0 auto 5% auto;
+		width: 100%;
+	}
+
 	&__row {
 		display: flex;
 		align-items: center;
+
+		@media #{$tabletPortrait} {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
 	}
 
 	&__button {
@@ -20,6 +30,24 @@
 
 		&:not(:first-of-type) {
 			border-left: none;
+
+			@media #{$tabletPortrait} {
+				border-left: 1px solid $nero;
+			}
+		}
+
+		&:not(:last-of-type) {
+			@media #{$tabletPortrait} {
+				border-bottom: none;
+			}
+		}
+
+		&:nth-of-type(1),
+		&:nth-of-type(3),
+		&:nth-of-type(5) {
+			@media #{$tabletPortrait} {
+				border-right: none;
+			}
 		}
 
 		@media (hover) {
@@ -31,6 +59,10 @@
 			&:focus {
 				outline: none;
 			}
+		}
+
+		@media #{$tabletPortrait} {
+			flex: 1 0 45%;
 		}
 	}
 }

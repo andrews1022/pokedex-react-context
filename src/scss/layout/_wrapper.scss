@@ -1,4 +1,8 @@
 .wrapper {
 	margin: 2% auto;
 	width: 92%;
+
+	@media #{$tabletPortrait} {
+		margin: 5% auto;
+	}
 }

@@ -4,8 +4,13 @@
 	padding: 2% 0;
 	text-align: center;
 
-	// &__text {
-	// }
+	@media #{$tabletPortrait} {
+		padding: 3.5%;
+	}
+
+	&__text {
+		line-height: 1.5;
+	}
 
 	&__icon-row {
 		margin-top: 0.5%;

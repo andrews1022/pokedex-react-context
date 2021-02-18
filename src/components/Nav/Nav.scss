@@ -6,6 +6,10 @@ $pad: 0.625rem;
 	background-color: $java;
 	padding: 1% 4%;
 
+	@media #{$tabletPortrait} {
+		padding: 4%;
+	}
+
 	&__list {
 		display: flex;
 		align-items: center;
@@ -14,10 +18,22 @@ $pad: 0.625rem;
 	&__item {
 		&:first-of-type {
 			margin-right: 3.5%;
+
+			@media #{$tabletPortrait} {
+				margin-right: auto;
+			}
 		}
 
 		&:last-of-type {
 			position: relative;
+
+			@media #{$tabletPortrait} {
+				flex: 0 1 60%;
+			}
+
+			@media #{$tabletPortrait} {
+				flex: 0 1 50%;
+			}
 		}
 	}
 
@@ -30,6 +46,10 @@ $pad: 0.625rem;
 			&:hover {
 				cursor: pointer;
 			}
+		}
+
+		@media #{$mobileMedium} {
+			font-size: 2.5rem;
 		}
 	}
 
@@ -45,6 +65,10 @@ $pad: 0.625rem;
 
 		&:focus {
 			outline: none;
+		}
+
+		@media #{$tabletPortrait} {
+			width: 100%;
 		}
 	}
 
@@ -64,6 +88,10 @@ $pad: 0.625rem;
 				background-color: darken($gainsboro, 5%);
 				cursor: pointer;
 			}
+		}
+
+		@media #{$tabletPortrait} {
+			display: none;
 		}
 	}
 }

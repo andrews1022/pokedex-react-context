@@ -1,3 +1,5 @@
+@import './../../scss/abstract/variables';
+
 .pl {
 	&__inner {
 		display: grid;
@@ -5,5 +7,13 @@
 		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 		justify-items: center;
 		text-align: center;
+
+		@media #{$mobileLarge} {
+			grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		}
+
+		@media #{$mobileSmall} {
+			grid-template-columns: auto;
+		}
 	}
 }
