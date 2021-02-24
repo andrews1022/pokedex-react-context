@@ -4,11 +4,14 @@ import { baseUrl, generationUrl } from './../api/api';
 export const loadInitialPokemon = () => async (dispatch) => {
 	dispatch({ type: 'LOADING_POKEMON' });
 
+	// get pokemon details
 	const response = await axios.get(baseUrl());
 	const data = response.data;
 
+	// extract species
 	const species = data.pokemon_species;
 
+	// sort the pokemon in numerical order 1 > 151
 	const sortedSpecies = species.sort((a, b) =>
 		a.url.localeCompare(b.url, 'en', { numeric: true, sensitivity: 'base' })
 	);
